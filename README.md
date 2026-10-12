@@ -19,6 +19,13 @@
 
 ---
 
+> **Contexto.** Projeto de estudo — não está em produção e não é um app publicado.
+> Exercita paridade entre plataformas: as mesmas regras de formatação e limpeza de título do
+> cliente iOS, validadas contra o mesmo golden de 1.566 títulos.
+>
+> O backend que serve o catálogo é privado, então **o app não roda num clone limpo** —
+> os testes, sim: são 38 e rodam em CI.
+
 ## O app
 
 Lote de leilão no Brasil tem um problema antigo: o preço está espalhado por dezenas de
