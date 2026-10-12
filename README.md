@@ -14,6 +14,7 @@
   <img alt="Compose" src="https://img.shields.io/badge/Jetpack%20Compose-2026.09-4285F4?style=flat-square&logo=jetpackcompose&logoColor=white">
   <img alt="minSdk" src="https://img.shields.io/badge/minSdk-26-3DDC84?style=flat-square&logo=android&logoColor=white">
   <img alt="targetSdk" src="https://img.shields.io/badge/targetSdk-37-3DDC84?style=flat-square&logo=android&logoColor=white">
+  <img alt="CI" src="https://github.com/loyfus/loyfus-android/actions/workflows/tests.yml/badge.svg">
 </p>
 
 ---
@@ -130,6 +131,10 @@ duas plataformas — um link de qualquer lugar cai na tela certa.
 | Rede | OkHttp 5.5 · kotlinx.serialization 1.11 |
 | Imagem | Coil 3.6 |
 | Build | AGP 9.4.1 · minSdk 26 · targetSdk 37 · R8 no release |
+
+## Licença
+
+MIT — [LICENSE](LICENSE).
 
 ---
 
