@@ -50,7 +50,7 @@ verificada numa rodada completa contra a fonte pública.
   condições e edital. **Barra fixa com o botão que leva ao site do leiloeiro.**
 - **Salvos** — favoritos anônimos por `device_id`, agrupados por urgência, com desfazer.
 
-## As três decisões que eu defenderia
+## Decisões
 
 **1. O backend monta as vitrines.** `/api/v1/home` devolve as quatro prateleiras já
 montadas, com um lote por leiloeiro e em ordem de prazo. O app não orquestra consulta: ele
