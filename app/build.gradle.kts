@@ -5,18 +5,18 @@ plugins {
 }
 
 android {
-    namespace = "br.com.loyfus"
+    namespace = "br.com.lote"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "br.com.loyfus"
+        applicationId = "br.com.lote"
         minSdk = 26
         targetSdk = 37
         versionCode = 1
         versionName = "1.0.0"
 
         // `adb reverse tcp:8080 tcp:8080` maps the device loopback onto the host API.
-        buildConfigField("String", "API_BASE_URL", "\"${project.findProperty("loyfusApiBaseUrl") ?: "http://127.0.0.1:8080"}\"")
+        buildConfigField("String", "API_BASE_URL", "\"${project.findProperty("loteApiBaseUrl") ?: "http://127.0.0.1:8080"}\"")
     }
 
     buildTypes {

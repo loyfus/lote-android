@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/logo.svg" width="104" alt="Loyfus">
+  <img src="docs/logo.svg" width="104" alt="Lote">
 </p>
 
-<h1 align="center">Loyfus · Android</h1>
+<h1 align="center">Lote · Android</h1>
 
 <p align="center">
   <b>Catálogo de leilões brasileiros com dados reais.</b><br>
@@ -14,7 +14,7 @@
   <img alt="Compose" src="https://img.shields.io/badge/Jetpack%20Compose-2026.09-4285F4?style=flat-square&logo=jetpackcompose&logoColor=white">
   <img alt="minSdk" src="https://img.shields.io/badge/minSdk-26-3DDC84?style=flat-square&logo=android&logoColor=white">
   <img alt="targetSdk" src="https://img.shields.io/badge/targetSdk-37-3DDC84?style=flat-square&logo=android&logoColor=white">
-  <img alt="CI" src="https://github.com/loyfus/loyfus-android/actions/workflows/tests.yml/badge.svg">
+  <img alt="CI" src="https://github.com/loyfus/lote-android/actions/workflows/tests.yml/badge.svg">
 </p>
 
 ---
@@ -30,7 +30,7 @@
 
 Lote de leilão no Brasil tem um problema antigo: o preço está espalhado por dezenas de
 portais, o título vem em CAIXA ALTA com código de anúncio no meio, e o prazo fica escondido.
-O Loyfus junta isso num catálogo só — e cada lote guarda a **URL de origem**, então o arremate
+O Lote junta isso num catálogo só — e cada lote guarda a **URL de origem**, então o arremate
 sempre acontece no site do leiloeiro, nunca dentro do app.
 
 **20.229 lotes**, **1.366 leilões**, **19 categorias** e **141.304 fotos** — coleta real,
@@ -77,7 +77,7 @@ vermelho em vez de surpresa em produção.
 ## Arquitetura
 
 ```
-app/src/main/java/br/com/loyfus/
+app/src/main/java/br/com/lote/
 ├── core/      formatação, limpeza de título, buscas recentes — espelhado no iOS
 ├── data/      cliente HTTP (OkHttp + kotlinx.serialization), repositório e stores
 └── ui/        composables, telas (inicial, explorar, lote, salvos, ajustes) e o tema
@@ -109,7 +109,7 @@ export ANDROID_HOME=~/Library/Android/sdk
 Para um dispositivo físico, aponte a base na compilação:
 
 ```bash
-./gradlew :app:assembleDebug -PloyfusApiBaseUrl=http://192.168.0.10:8080
+./gradlew :app:assembleDebug -PloteApiBaseUrl=http://192.168.0.10:8080
 ```
 
 ## Testes
@@ -125,7 +125,7 @@ reais que precisam voltar **exatamente** iguais.
 
 ## Deep link
 
-`loyfus://lot/<id>` abre o lote e `loyfus://explore` abre a busca, com o mesmo contrato nas
+`lote://lot/<id>` abre o lote e `lote://explore` abre a busca, com o mesmo contrato nas
 duas plataformas — um link de qualquer lugar cai na tela certa.
 
 ## Stack
@@ -145,8 +145,8 @@ MIT — [LICENSE](LICENSE).
 
 ---
 
-Parte de um projeto de três repositórios: [`loyfus-backend`](https://github.com/loyfus/loyfus-backend)
-(crawler + API + banco) e [`loyfus-ios`](https://github.com/loyfus/loyfus-ios) (SwiftUI).
+Parte de um projeto de três repositórios: [`loyfus-backend`](https://github.com/loyfus/lote-backend)
+(crawler + API + banco) e [`loyfus-ios`](https://github.com/loyfus/lote-ios) (SwiftUI).
 Nenhum cliente depende do código do outro — só do contrato HTTP.
 
 <sub>Dados de coleção: SuperBid, via endpoints públicos consumidos pela própria vitrine do site.</sub>
