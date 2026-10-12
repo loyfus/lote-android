@@ -56,14 +56,12 @@ import br.com.loyfus.ui.theme.LineControl
 import kotlinx.coroutines.delay
 
 /**
- * The filter sheet: type, deadline, price range and order, held as a draft that only
- * reaches Explore when the reader taps "Mostrar N lotes". N is the live answer: the
- * draft is asked of the API as a one-row query, a beat after the last change, so the
- * button promises what it will deliver. While the answer is on its way it says "Ver
- * resultados" rather than a number it does not have.
+ * The filter sheet: type, deadline, price range and order, held as a draft that reaches Explore
+ * only when the reader taps "Mostrar N lotes". N is live — the draft is asked of the API as a
+ * one-row query a beat after the last change — and while the answer is in flight the button says
+ * "Ver resultados" rather than a number it does not have.
  *
- * It opens fully expanded: the footer (Limpar, Mostrar) is part of the sheet and a
- * half-open sheet would leave it below the fold.
+ * It opens fully expanded, since the footer (Limpar, Mostrar) is part of the sheet.
  */
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable

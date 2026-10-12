@@ -74,11 +74,9 @@ import br.com.loyfus.ui.theme.sized
 import kotlinx.coroutines.launch
 
 /**
- * Home is the door of the catalogue: a hero that says who this is and hands over to
- * search in one tap, the categories as frosted shortcuts, one notice it can take back,
- * and then a sheet that says what is true right now (how fresh the catalogue is, what
- * is closing, who takes an offer), what the reader might spend, and what the server
- * picked. It is not a feed: browsing is Explore's job, and Home's job is the first
+ * Home is the door of the catalogue: a hero that says who this is and hands over to search in one
+ * tap, the categories as frosted shortcuts, one notice it can take back, and a sheet that says
+ * what is true right now. It is not a feed — browsing is Explore's job, and Home's job is the first
  * screen of it.
  */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -331,9 +329,9 @@ private fun Shelf(
 }
 
 /**
- * The saved lots as Home shows them: the ones closing soonest first, direct sales and
- * lots without a deadline last, and the ones already finished left out entirely — a
- * rail of lots whose time has passed is a shelf of nothing.
+ * The saved lots as Home shows them: closing soonest first, direct sales and lots without a
+ * deadline last, and finished ones left out entirely — a rail of lots whose time has passed is a
+ * shelf of nothing.
  */
 private fun List<LotCardModel>.forHome(): List<LotCardModel> = filter { it.urgency != Urgency.Ended }
     .sortedWith(

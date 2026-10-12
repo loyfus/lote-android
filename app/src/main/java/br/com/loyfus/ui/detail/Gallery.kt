@@ -97,11 +97,9 @@ fun galleryHeight(): Dp {
 }
 
 /**
- * The photographs of the lot, full width, each on its ambient plate and never cropped,
- * swiped one by one; a tap opens the viewer. The controls float on the photo: back on
- * the left, share and the heart on the right, a counter below. They are 42dp scrim
- * discs inside 48dp targets, and they scroll away with the photograph; the collapsed
- * top bar takes over when they have.
+ * The photographs of the lot, full width, on their ambient plate and never cropped, swiped one by
+ * one; a tap opens the viewer. The controls float on the photo — 42dp scrim discs inside 48dp
+ * targets — and scroll away with it, the collapsed top bar taking over when they have.
  */
 @Composable
 fun Gallery(
@@ -187,10 +185,9 @@ fun Gallery(
 }
 
 /**
- * The full-screen viewer: black ground, the photographs in a pager, close on the left,
- * "3 / 34" in the middle, share on the right, a strip of thumbnails along the bottom.
- * Pinch zooms from 1x to 4x, a double tap goes to 2.5x and back; a zoomed photograph is
- * dragged and the pager stands still until it is back at 1x.
+ * The full-screen viewer: black ground, the photographs in a pager, close on the left, "3 / 34"
+ * in the middle, share on the right, thumbnails along the bottom. Pinch zooms 1x–4x, a double tap
+ * goes to 2.5x and back, and a zoomed photograph is dragged while the pager stands still.
  */
 @Composable
 fun PhotoViewer(
@@ -297,9 +294,9 @@ private const val MAX_ZOOM = 4f
 private const val DOUBLE_TAP_ZOOM = 2.5f
 
 /**
- * One photograph in the viewer, with pinch, drag and double tap. A single finger on a
- * photograph at 1x is not consumed, so the pager still swipes; two fingers, or any
- * finger on a zoomed photograph, belong to the zoom.
+ * One photograph in the viewer, with pinch, drag and double tap. A single finger at 1x is not
+ * consumed, so the pager still swipes; two fingers, or any finger on a zoomed photo, are the
+ * zoom's.
  */
 @Composable
 private fun ZoomablePhoto(

@@ -20,13 +20,10 @@ internal tailrec fun Context.findActivity(): Activity? = when (this) {
 private class BarIconRequest(val whiteStatus: Boolean, val whiteNavigation: Boolean)
 
 /**
- * The wishes of every screen in the composition, oldest first. The newest one wins.
- *
- * A stack rather than "set on enter, restore on leave": during a navigation both screens
- * are composed, and the one leaving disposes after the one arriving has started. Home
- * asks for white icons on its night-blue bar; the lot's photograph asks for white too,
- * then for the theme's once its bar collapses. Restoring "what it was before" from Home
- * as it leaves would paint dark icons over the arriving photograph.
+ * The wishes of every screen in the composition, oldest first; the newest wins. A stack rather
+ * than set/restore because during navigation both screens are composed and the one leaving
+ * disposes after the one arriving has started: restoring "what it was before" from Home as it
+ * leaves would paint dark icons over the arriving photograph.
  */
 private val requests = mutableListOf<BarIconRequest>()
 
@@ -35,10 +32,9 @@ private var themeLightStatus = true
 private var themeLightNavigation = true
 
 /**
- * The theme's say: dark icons on a light theme, white on a dark one, unless a screen in
- * the composition wishes otherwise. The theme calls this instead of setting the bars
- * itself, because its effect runs after the screens' on the first frame and would
- * otherwise undo Home's white icons the moment the app opens.
+ * The theme's say: dark icons on a light theme, white on a dark one, unless a screen wishes
+ * otherwise. The theme calls this instead of setting the bars itself because its effect runs
+ * after the screens' on the first frame, undoing Home's white icons the moment the app opens.
  */
 fun themeBarIcons(controller: WindowInsetsControllerCompat, darkTheme: Boolean) {
     themeLightStatus = !darkTheme
@@ -52,11 +48,7 @@ private fun WindowInsetsControllerCompat.applyNewest() {
     isAppearanceLightNavigationBars = if (newest?.whiteNavigation == true) false else themeLightNavigation
 }
 
-/**
- * White system bar icons for as long as this is in the composition, for a screen whose
- * ground under the bars is a photograph, black, or the night-blue bar of Home. When it
- * leaves, the next newest screen's wish applies, or the theme's when there is none.
- */
+/** White system bar icons while this is composed. When it leaves, the next newest wish applies. */
 @Composable
 fun SystemBarIcons(whiteStatus: Boolean, whiteNavigation: Boolean = false) {
     val context = LocalContext.current

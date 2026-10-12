@@ -70,9 +70,9 @@ object Motion {
     fun <T> collapse(): TweenSpec<T> = tween(COLLAPSE, easing = Standard)
 
     /**
-     * One state of a screen giving way to the next: skeleton to content, content to error.
-     * The new one fades in over the standard time while the old one leaves faster, so the
-     * two never sit on top of each other long enough to read as a double exposure.
+     * One screen state giving way to the next: skeleton to content, content to error. The new
+     * one fades in over the standard time while the old leaves faster, so the two never read as a
+     * double exposure.
      */
     val contentSwap: ContentTransform
         get() = ContentTransform(
@@ -82,9 +82,8 @@ object Motion {
         )
 
     /**
-     * A number changing in place: the new one rises in when the count goes up and drops
-     * in when it goes down, a quarter of its height, in 120 ms. With reduced motion it
-     * only fades.
+     * A number changing in place: it rises a quarter of its height when the count goes up and
+     * drops when it goes down, in 120 ms. With reduced motion it only fades.
      */
     fun countSwap(reduced: Boolean, up: Boolean): ContentTransform {
         val inFade = fadeIn(fast())
@@ -107,19 +106,14 @@ object Motion {
         if (reduced) fadeOut(fast()) else fadeOut(fast()) + scaleOut(exit(), targetScale = 0.6f)
 }
 
-/**
- * True when the system asks for no animation. An animator duration scale of zero is
- * what both the developer option and the accessibility "remove animations" setting
- * write, so it is the reduce-motion signal on Android.
- */
+/** True when the system asks for no animation: a zero animator duration scale. */
 fun Context.prefersReducedMotion(): Boolean = runCatching {
     Settings.Global.getFloat(contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
 }.getOrDefault(false)
 
 /**
- * Whether movement through space is off. Compose already shortens every duration by the
- * system's animator scale, so a fade simply completes at once; this is for what is not
- * a duration — a slide, a scale, a pop, a pulse — which is left out entirely rather than
- * squeezed to nothing.
+ * Whether movement through space is off. Compose already shortens durations by the system's
+ * scale, so a fade completes at once; this covers what is not a duration — a slide, a scale, a
+ * pop, a pulse — which is left out entirely rather than squeezed to nothing.
  */
 val LocalReducedMotion = staticCompositionLocalOf { false }

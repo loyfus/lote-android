@@ -44,9 +44,8 @@ private const val CURRENCY = "R$ "
 private const val MAX_DIGITS = 9
 
 /**
- * Shows the digits the reader typed as a price while they are typed: `50000` reads
- * `R$ 50.000`. The field's own text stays digits only, so what is sent to the API is
- * never a formatted string, and the cursor maps through the dots and the symbol.
+ * Shows typed digits as a price while they are typed: `50000` reads `R$ 50.000`. The field's own
+ * text stays digits only, so the API never receives a formatted string.
  */
 internal object MoneyTransformation : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {

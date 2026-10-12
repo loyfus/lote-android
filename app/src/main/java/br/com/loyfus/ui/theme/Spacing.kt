@@ -38,10 +38,9 @@ object Adaptive {
     private const val LARGE_TEXT = 1.3f
 
     /**
-     * Columns of a tile grid: two on a phone, three from 600dp, four from 840dp. Large
-     * text halves the count (rounded up), which puts a phone on one column: two columns
-     * stop working once the reader has turned the text up, because the price loses its
-     * line to the title. Fewer columns, not smaller text, is the adaptive answer.
+     * Columns of a tile grid: two on a phone, three from 600dp, four from 840dp. Large text
+     * halves the count (rounded up), putting a phone on one column: two columns stop working
+     * once the text is turned up, because the price loses its line to the title.
      */
     fun gridColumns(widthDp: Float, fontScale: Float): Int {
         val byWidth = when {

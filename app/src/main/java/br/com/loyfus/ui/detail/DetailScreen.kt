@@ -78,11 +78,10 @@ import kotlin.math.max
 import kotlinx.coroutines.launch
 
 /**
- * A lot. The photograph first, then what it is, what it costs and for how long, then the
- * details, then the auction behind it; a bar fixed to the bottom carries the price and the
- * way to the source from the first pixel to the last. The navigation bar is not on this
- * screen: the controls float on the photograph, and give way to a plain top bar once the
- * photograph has scrolled off.
+ * A lot: the photograph, then what it is, what it costs and for how long, then the details, then
+ * the auction behind it — with a bar fixed to the bottom carrying the price and the way to the
+ * source throughout. The controls float on the photograph and give way to a plain top bar once it
+ * has scrolled off.
  */
 @Composable
 fun DetailScreen(

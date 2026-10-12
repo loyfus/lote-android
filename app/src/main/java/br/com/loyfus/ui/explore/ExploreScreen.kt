@@ -105,14 +105,13 @@ import br.com.loyfus.ui.theme.Surface
 import br.com.loyfus.ui.theme.Type
 
 /**
- * Explore: search, filter, sort and browse the whole catalogue. The search row is the
- * only part that stays put; chips, active filters, the count and the grid scroll as one,
- * so a phone held sideways is not left with a quarter of a screen of results.
+ * Explore: search, filter, sort and browse the catalogue. Only the search row stays put; chips,
+ * active filters, the count and the grid scroll as one, so a phone held sideways is not left with
+ * a quarter of a screen of results.
  *
- * The grid is rows of tiles inside one lazy column, which lets the chip rows run to the
- * edge of the screen while the tiles keep the gutter. Its state lives in the view-model
- * above the navigation graph and in the saved list state, so leaving for a lot or
- * another tab and coming back finds the same results at the same place.
+ * The grid is rows of tiles inside one lazy column, letting chip rows run to the screen edge
+ * while tiles keep the gutter. State lives above the navigation graph, so leaving and coming back
+ * finds the same results in the same place.
  */
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
@@ -515,9 +514,8 @@ private fun SortMenu(sort: LotSort, onSelect: (LotSort) -> Unit) {
 }
 
 /**
- * What the empty, focused field offers instead of a blank screen: the last eight
- * searches (kept on the device, with a way to wipe them) and the categories as a
- * way to begin.
+ * What the empty, focused field offers instead of a blank screen: the last eight searches (kept
+ * on the device, with a way to wipe them) and the categories as a way to begin.
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -595,10 +593,9 @@ private fun RecentsPanel(
 }
 
 /**
- * How a row of the results arrives and leaves: a fade over the standard time, and a
- * glide to its new place when the rows above it change (a tag row appearing, a sort).
- * Keys are the lots' ids, so only rows that are new fade in: a page appended at the
- * end does not replay the rows already on screen.
+ * How a row arrives and leaves: a fade over the standard time, plus a glide to its new place when
+ * the rows above change. Keys are the lots' ids, so only new rows fade — a page appended at the
+ * end does not replay the rows on screen.
  */
 private fun LazyItemScope.arrival(): Modifier =
     Modifier.animateItem(fadeInSpec = Motion.enter(), fadeOutSpec = Motion.exit())

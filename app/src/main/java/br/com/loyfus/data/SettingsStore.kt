@@ -10,9 +10,8 @@ enum class ThemeMode(val key: String, val label: String) {
 }
 
 /**
- * The reader's choices on the Settings screen. Plain preferences, like the other stores:
- * a handful of values never leave the phone. The keys and their values are the same on
- * both platforms (`UserDefaults` on iOS).
+ * The reader's choices on Settings. Plain preferences, like the other stores: a handful of values
+ * never leave the phone. Keys and values are the same on both platforms (`UserDefaults` on iOS).
  */
 class SettingsStore(private val prefs: SharedPreferences) {
 

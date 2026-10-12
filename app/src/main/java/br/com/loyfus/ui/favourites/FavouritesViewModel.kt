@@ -24,9 +24,8 @@ data class FavouritesUiState(
     /** Every saved lot of this device: the hearts on every screen and the badge on the tab read this. */
     val ids: Set<Long> = emptySet(),
     /**
-     * The Saved list as of the last read of the server. A row the reader removed stays
-     * here until the next read and is hidden by [ids], so a refused removal brings it back
-     * without another trip to the server.
+     * The Saved list as of the last read of the server. A removed row stays here until the next
+     * read and is hidden by [ids], so a refused removal brings it back without another round trip.
      */
     val items: List<LotCardModel> = emptyList(),
     /** True once the server has answered at least once. */
@@ -39,13 +38,12 @@ data class FavouritesUiState(
 )
 
 /**
- * The saved lots of this device, in one place for the whole app. Held above the
- * navigation graph, like Explore, because three screens and the tab bar need the same
- * answer: a heart tapped in Explore must already be filled in Home, counted on the
- * Saved tab and listed there.
+ * The saved lots of this device, in one place for the whole app. Held above the navigation graph,
+ * like Explore, because three screens and the tab bar need the same answer: a heart tapped in
+ * Explore must already be filled in Home and counted on the Saved tab.
  *
- * Every change is optimistic and honest: the heart answers at once, the request follows,
- * and if the server refuses, the heart goes back.
+ * Every change is optimistic and honest: the heart answers at once, the request follows, and if the
+ * server refuses, the heart goes back.
  */
 class FavouritesViewModel(private val repository: LoyfusRepository) : ViewModel() {
 

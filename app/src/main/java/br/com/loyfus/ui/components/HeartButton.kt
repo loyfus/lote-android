@@ -34,16 +34,13 @@ import br.com.loyfus.ui.theme.Touch
 import kotlinx.coroutines.launch
 
 /**
- * The favourite toggle on a photograph. Off: a scrim disc with an outlined white heart.
- * On: a white disc with a filled [HeartOn] heart. The state is the shape, outlined or
- * filled, never only the colour.
+ * The favourite toggle on a photograph: off is a scrim disc with an outlined heart, on a white
+ * disc with a filled one — the state is the shape, never only the colour. The visible disc is
+ * [size] and the touch target is always 48dp around it. Turning it pops the heart (1 to 1.25 to
+ * 1) with a haptic tick, unless reduced motion is on, and then the heart just changes.
  *
- * The visible disc is [size]; the touch target is always 48dp around it. Turning it on
- * or off pops the heart (1 to 1.25 to 1 over 220 ms) with a tick of haptic feedback,
- * unless the system asks for reduced motion: then the heart just changes.
- *
- * [title] is the lot's title: "Favoritar X" says what the control will do to which lot,
- * which "Favoritar" alone, repeated twenty times down a list, cannot.
+ * [title] is the lot's title: "Favoritar X" says what the control will do to which lot, which
+ * "Favoritar" alone, repeated down a list, cannot.
  */
 @Composable
 fun HeartButton(

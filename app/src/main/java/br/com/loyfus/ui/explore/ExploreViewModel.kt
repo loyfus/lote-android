@@ -55,12 +55,11 @@ data class ExploreUiState(
 )
 
 /**
- * The state of the browse screen: what is searched, filtered and sorted, and the lots
- * that came back. Held above the navigation graph so that it survives a trip to a lot
- * and a switch of tab: the reader comes back to the same results at the same place.
+ * The state of the browse screen: what is searched, filtered and sorted, and the lots that came
+ * back. Held above the navigation graph so it survives a trip to a lot and a switch of tab.
  *
- * Every change of the question starts a new read and cancels the one in flight, so an
- * answer to a question the reader has already replaced can never land on the screen.
+ * Every change of the question starts a new read and cancels the one in flight, so an answer to
+ * a question the reader already replaced can never land on the screen.
  */
 class ExploreViewModel(
     private val repository: LoyfusRepository,

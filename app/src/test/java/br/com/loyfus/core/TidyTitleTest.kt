@@ -101,22 +101,24 @@ class TidyTitleTest {
     }
 
     /**
-     * The golden file lives at the repository root. Gradle runs unit tests from the
-     * module directory, so walk up until it turns up. A missing file fails the build:
-     * a skipped golden test would let the port drift without anyone noticing.
+     * The golden table is owned by the backend repo, which sits beside this one. Gradle runs
+     * unit tests from the module directory, so walk up looking in each root and its backend
+     * sibling. A missing file fails the build: a skipped golden test would let the port drift
+     * without anyone noticing.
      */
     private fun goldenFile(): File {
         val relative = "docs/design-v3/tidy_title_golden.tsv"
         val start = requireNotNull(System.getProperty("user.dir")) { "user.dir is not set" }
         var dir: File? = File(start).absoluteFile
         while (dir != null) {
-            val candidate = File(dir, relative)
-            if (candidate.isFile) return candidate
+            for (candidate in listOf(File(dir, relative), File(dir, "backend/$relative"))) {
+                if (candidate.isFile) return candidate
+            }
             dir = dir.parentFile
         }
         fail(
-            "Golden file not found: looked for $relative in $start " +
-                "and every parent directory. The title test cannot pass without it."
+            "Golden file not found: looked for $relative in $start, in every parent directory, " +
+                "and in their backend/ siblings. The title test cannot pass without it."
         )
         error("unreachable")
     }

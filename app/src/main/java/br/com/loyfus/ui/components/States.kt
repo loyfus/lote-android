@@ -30,11 +30,10 @@ import br.com.loyfus.ui.theme.Space
 import br.com.loyfus.ui.theme.Type
 
 /**
- * A screen with nothing to show: a quiet disc and a glyph that says what is missing, a
- * title, a line of guidance, and the action that gets out of it whenever there is one.
- * Empty and failed are different facts and never share a screen: [ErrorState] says
- * what went wrong and offers a retry, this one says there is nothing and offers a way
- * to find something.
+ * A screen with nothing to show: a quiet disc and a glyph saying what is missing, a title, a line
+ * of guidance and the action that gets out of it. Empty and failed never share a screen:
+ * [ErrorState] says what went wrong and offers a retry, this says there is nothing and offers a
+ * way to find something.
  */
 @Composable
 fun EmptyState(

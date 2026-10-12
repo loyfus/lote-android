@@ -4,9 +4,8 @@ import kotlinx.coroutines.CancellationException
 import java.io.IOException
 
 /**
- * `runCatching` for suspend code: a cancelled coroutine is not a failed request. The
- * standard one swallows the cancellation and hands it to `onFailure`, which would show
- * an error screen for a search the reader had simply already replaced.
+ * `runCatching` for suspend code: a cancelled coroutine is not a failed request. The standard one
+ * swallows the cancellation and would show an error screen for a search the reader had replaced.
  */
 suspend inline fun <T> attempt(block: () -> T): Result<T> = try {
     Result.success(block())

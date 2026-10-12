@@ -3,10 +3,9 @@ package br.com.loyfus.data
 import android.content.SharedPreferences
 
 /**
- * Whether the reader has dismissed Home's "Como funciona" notice. Once dismissed it
- * never comes back: a notice that can be dismissed but returns is not dismissable, it is
- * a nagging element wearing the costume of one. Plain preferences, because one boolean
- * is not worth a database and never leaves the phone.
+ * Whether the reader dismissed Home's "Como funciona" notice. Once dismissed it never returns: a
+ * notice that comes back is not dismissable, it is nagging in costume. Plain preferences, because
+ * one boolean never leaves the phone.
  */
 class HomeBannerStore(private val prefs: SharedPreferences) {
 

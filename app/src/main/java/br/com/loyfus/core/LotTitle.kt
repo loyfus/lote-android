@@ -6,14 +6,12 @@ import java.util.regex.Pattern
 /** A lot title cleaned for display, and what the source wrote after the first " | ". */
 data class TidyTitle(val headline: String, val detail: String?)
 
-// The catalogue title comes from the auctioneer: 76% in capitals, 28% with a
-// "(Ref.: 53137)" tail, 5% with " | " between title and address. The backend keeps
-// delivering the raw text (it stays the source of truth); presenting it is the
-// client's job, and this is a line-for-line port of docs/design-v3/tidy_title.py,
-// checked against the 1,566 real titles of tidy_title_golden.tsv.
-//
-// Python's `str` regexes are Unicode-aware where Java's are not, so every `\s`, `\w`,
-// `\d` and `\b` of the reference is spelled out as the class it stands for.
+// The catalogue title comes from the auctioneer (76% in capitals, 28% with a "(Ref.: 53137)"
+// tail, 5% with " | " between title and address) and the backend keeps delivering it raw — the
+// source of truth; presenting it is the client's job. A line-for-line port of
+// backend/docs/design-v3/tidy_title.py, checked against its 1,566 golden titles. Python's `str`
+// regexes are Unicode-aware where Java's are not, so every `\s`, `\w`, `\d` and `\b` of the
+// reference is spelled out as the class it stands for.
 
 /** Portuguese connectives: lower case, except as the first word. */
 private val CONNECTORS = setOf(
@@ -196,9 +194,8 @@ fun tidyTitle(raw: String): TidyTitle {
 }
 
 /**
- * The real place of a lot, when its title carries one (" | Cidade-UF"): the first piece
- * of the title detail that is a city and a state code. The catalogue's own city and state
- * fields are the auction event's address, not the item's, so they are never used for this.
+ * The real place of a lot, when its title carries one (" | Cidade-UF"). The catalogue's own city
+ * and state fields are the auction event's address, not the item's, so they are never used here.
  */
 fun place(detail: String?): String? {
     if (detail == null) return null

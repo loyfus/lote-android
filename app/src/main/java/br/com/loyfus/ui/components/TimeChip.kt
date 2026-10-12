@@ -27,12 +27,10 @@ import br.com.loyfus.ui.theme.Amber
 import br.com.loyfus.ui.theme.sized
 
 /**
- * The deadline badge on a photograph, bottom left. Only the exceptional earns colour:
- * an auction in its last day wears the amber, everything else sits on the scrim.
- * Urgency is colour, clock and words together, never colour alone.
- *
- * It is decorative to a screen reader: the card around it already says the time.
- * The height is a minimum, not a size: at a large font scale the pill grows with its text.
+ * The deadline badge on a photograph. Only the exceptional earns colour: an auction in its last
+ * day wears the amber, everything else sits on the scrim — urgency is colour, clock and words
+ * together, never colour alone. Decorative to a screen reader, since the card already says the
+ * time. The height is a minimum, so the pill grows with its text at a large font scale.
  */
 @Composable
 fun TimeChip(spec: ChipSpec, modifier: Modifier = Modifier) {

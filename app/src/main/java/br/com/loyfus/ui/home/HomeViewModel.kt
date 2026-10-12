@@ -49,10 +49,9 @@ data class HomeUiState(
 )
 
 /**
- * Home is discovery, and the server does the choosing: the shelves arrive assembled
- * (the next to close, the most contested, the newest, the real estate), so this holds
- * no feed, no paging and no ranking of its own. What it adds is the category row,
- * fetched beside it, and the freshness of both.
+ * Home is discovery, and the server does the choosing: the shelves arrive assembled, so this
+ * holds no feed, no paging and no ranking of its own. What it adds is the category row and the
+ * freshness of both.
  */
 class HomeViewModel(private val repository: LoyfusRepository) : ViewModel() {
 

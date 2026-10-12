@@ -10,10 +10,8 @@ import br.com.loyfus.data.SettingsStore
 import java.util.UUID
 
 /**
- * Manual dependency container.
- *
- * The graph is small and entirely stateless, so an explicit container beats an
- * annotation processor here: no codegen, no build-time cost, obvious lifetimes.
+ * Manual dependency container. The graph is small and entirely stateless, so an explicit
+ * container beats an annotation processor here: no codegen, no build-time cost, obvious lifetimes.
  */
 class AppContainer(context: Context) {
 

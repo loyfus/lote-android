@@ -38,14 +38,11 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 
 /**
- * The call to action: price and caption on the left, the way to the source on the right,
- * on every screen of a lot, always in reach and above the system's navigation area. The
- * wording follows what the lot is: "Dar lance no site" for a running auction, "Ver oferta
- * no site" for a direct sale, "Ver no site" once it is over or sold; with no link, a
- * disabled "Link indisponível" instead of a button that would do nothing.
- *
- * It is a translucent paper bar over the content with a hairline on top. The bid itself
- * happens at the auctioneer, which is why the button leaves the app.
+ * The call to action: price on the left, the way to the source on the right, on every screen of a
+ * lot and always in reach. The wording follows what the lot is — "Dar lance no site" for a
+ * running auction, "Ver oferta no site" for a direct sale, "Ver no site" once over — and with
+ * no link it is a disabled "Link indisponível" rather than a button that would do nothing. The
+ * bid happens at the auctioneer, which is why the button leaves the app.
  */
 @Composable
 fun StickyBar(
@@ -109,9 +106,8 @@ fun StickyBar(
 }
 
 /**
- * Price beside the button when they fit, price above the button when they do not. At a
- * large font scale the figure and a full-width label cannot share a line; the figure
- * keeps its line and the button takes the next, instead of either being squeezed.
+ * Price beside the button when they fit, above it when they do not: at a large font scale the
+ * figure and a full-width label cannot share a line, and the figure keeps its line.
  */
 @Composable
 private fun PriceAndAction(price: @Composable () -> Unit, action: @Composable () -> Unit) {

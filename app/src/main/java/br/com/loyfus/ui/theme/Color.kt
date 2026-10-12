@@ -6,20 +6,18 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-// "Pregão": a night-blue ground that carries the brand (the hero of Home, the icon),
-// cool neutral paper so the photographs keep their own colour, and one amber accent
-// for "act now". Pine marks what is alive and positive. No other hue reaches text.
+// "Pregão": a night-blue ground that carries the brand, cool neutral paper so photographs
+// keep their own colour, one amber accent for "act now", pine for what is alive. No other
+// hue reaches text.
 //
-// Amber comes in two strengths because a fill is not a text colour: `amber` is the
-// fill (the CTA, the urgent time chip, the badges) and always carries `onAmber`;
-// `amberText` is the amber dark enough to write on paper (an urgent price or time,
-// the heart, the last-day bar). The fill never writes on paper: it measures 1.88:1.
+// Amber comes in two strengths because a fill is not a text colour: `amber` is the fill and
+// always carries `onAmber`; `amberText` is dark enough to write on paper. The fill never writes
+// on paper — it measures 1.88:1.
 //
-// Every token is a role, not a colour, and resolves through the active theme. The
-// light constants below are the reference palette; DarkRoles restates each one
-// for dark appearances rather than inverting it, because a dark theme is not an
-// inversion. Reading these as top-level composable getters keeps call sites
-// unchanged and makes it impossible to draw light-mode ink on a dark screen.
+// Every token is a role, not a colour, resolving through the active theme. DarkRoles restates
+// each role for dark appearances rather than inverting it, because a dark theme is not an
+// inversion, and reading these as composable getters makes it impossible to draw light-mode
+// ink on a dark screen.
 
 @Immutable
 data class Roles(

@@ -14,11 +14,9 @@ import br.com.loyfus.ui.theme.LocalReducedMotion
 import br.com.loyfus.ui.theme.Motion
 
 /**
- * A count that changes in place — a badge, a total — drawn by [content]. The new value
- * comes in from below when it grows and from above when it shrinks (Motion.countSwap),
- * so the direction of the change is visible as well as the number. Only a change of
- * value animates; recomposing with the same value does nothing. `null` is "not known
- * yet" and swaps by fading.
+ * A count that changes in place — a badge, a total — drawn by [content]. The new value comes
+ * in from below when it grows and from above when it shrinks (Motion.countSwap), so the direction
+ * of the change is visible. Only a change of value animates; `null` swaps by fading.
  */
 @Composable
 fun AnimatedCount(
@@ -41,9 +39,9 @@ fun AnimatedCount(
 }
 
 /**
- * A count badge that appears and disappears instead of blinking: it grows in when the
- * count leaves zero, shrinks out when it returns to zero (still showing the last number
- * as it goes), and cross-fades between two non-zero counts. [badge] draws one count.
+ * A badge that appears and disappears instead of blinking: it grows in when the count leaves zero,
+ * shrinks out when it returns (still showing the last number), and cross-fades between two
+ * non-zero counts.
  */
 @Composable
 fun AnimatedBadge(

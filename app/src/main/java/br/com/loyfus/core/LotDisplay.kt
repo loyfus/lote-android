@@ -19,9 +19,8 @@ fun kindOf(modality: String?): LotKind =
     if (modality == "AFTER_MARKET") LotKind.DirectSale else LotKind.Auction
 
 /**
- * The deadline state of a lot. The API sends -1 when the source gave no deadline and 0
- * once it has passed, so "ended" needs a deadline to have passed *from*: a lot with
- * no `endsAt` never ends. A direct sale is never hot.
+ * The deadline state of a lot. The API sends -1 for no deadline and 0 once it has passed, so
+ * "ended" needs a deadline to have passed *from*: a lot with no `endsAt` never ends.
  */
 fun urgencyOf(kind: LotKind, secondsToClose: Long, hasDeadline: Boolean): Urgency = when {
     secondsToClose > 0 ->
@@ -39,9 +38,8 @@ enum class SavedGroup(val title: String) {
 }
 
 /**
- * Where a saved lot belongs: an auction in its last day is "today", one within the week
- * is "this week", an ended one is "ended" and everything else, a direct sale or a lot with
- * no deadline included, is "later". A direct sale has no clock worth watching.
+ * Where a saved lot belongs: an auction in its last day is "today", one within the week "this
+ * week", an ended one "ended", everything else "later". A direct sale has no clock to watch.
  */
 fun savedGroupOf(kind: LotKind, urgency: Urgency, secondsToClose: Long): SavedGroup = when {
     urgency == Urgency.Ended -> SavedGroup.Ended

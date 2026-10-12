@@ -108,12 +108,10 @@ private val TABS = listOf(
 )
 
 /**
- * The app: three tabs on a native navigation bar, and the two screens one level down
- * that hide it: the lot and the settings.
- *
- * What has to outlive a screen is held here, above the navigation graph: Explore (so a
- * trip to a lot or another tab returns to the same results) and the saved lots (so a
- * heart tapped anywhere is filled everywhere and counted on its tab).
+ * The app: three tabs on a native navigation bar, and the two screens one level down that hide
+ * it. What must outlive a screen is held here above the navigation graph: Explore, so a trip to
+ * a lot or another tab returns to the same results, and the saved lots, so a heart tapped
+ * anywhere is filled everywhere.
  */
 @Composable
 fun LoyfusApp(
@@ -193,12 +191,10 @@ fun LoyfusApp(
             navController = navController,
             startDestination = Routes.HOME,
             modifier = Modifier.fillMaxSize(),
-            // Two kinds of move. Between tabs nothing is deeper than anything else, so the
-            // new tab only fades in over the old one. Opening a lot or the settings goes one
-            // level down: it comes in from the trailing edge by a tenth of the width while the list
-            // drifts back a little, and Back (including the predictive gesture, which
-            // scrubs these same transitions) runs it in reverse. With reduced motion every
-            // move is the fade alone.
+            // Two kinds of move: between tabs the new one only fades in, and going one level
+            // down it enters from the trailing edge while the list drifts back. Back runs both
+            // in reverse, predictive gesture included. With reduced motion every move is the
+            // fade alone.
             enterTransition = {
                 if (opensBelow()) pushIn(reducedMotion) else fadeIn(Motion.enter())
             },
@@ -335,9 +331,8 @@ private fun NavHostController.navigateToTab(route: String) {
 }
 
 /**
- * The native Material 3 navigation bar, in the app's colours: the selected tab is a
- * soft amber pill with a deep amber icon and an ink label, the others grey; the
- * ground is the paper at 94% over a hairline. The Saved tab carries the count of saved lots.
+ * The native Material 3 navigation bar in the app's colours: the selected tab a soft amber pill,
+ * the others grey, the ground the paper at 94% over a hairline. Saved carries its own count.
  */
 @Composable
 private fun AppNavigationBar(route: String?, savedCount: Int, onSelect: (String) -> Unit) {

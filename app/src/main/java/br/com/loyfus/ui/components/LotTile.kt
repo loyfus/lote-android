@@ -36,13 +36,13 @@ enum class TileStyle(val ratio: Float, val corners: androidx.compose.foundation.
 val RailTileWidth: Dp = 256.dp
 
 /**
- * The lot, as the catalogue shows it: photo first, then what it is, where, and what it
- * costs. No frame, no fill, no category, no status: the photo and the space around it
- * separate one lot from the next, and only the exceptional gets a badge or a colour.
+ * The lot as the catalogue shows it: photo first, then what it is, where, what it costs. No
+ * frame, no fill, no category, no status — the photo and the space around it separate one lot
+ * from the next, and only the exceptional gets a badge.
  *
- * The photo carries the deadline badge (bottom left) and the heart (top right). The
- * whole tile is one button with one spoken label; the heart is its own stop beside it,
- * because a toggle nested inside a button cannot be reached on its own.
+ * The photo carries the deadline badge and the heart. The whole tile is one button with one
+ * spoken label; the heart is a stop beside it, because a toggle nested in a button cannot be
+ * reached on its own.
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

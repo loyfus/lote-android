@@ -57,12 +57,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 /**
- * The menu behind the hamburger: where the app goes, and every category by name.
- *
- * The horizontal strip on the hero is a shortcut, not a list — it cuts "Movimentação"
- * in half and hides the thirteen categories that do not fit. Here the same data is a
- * column of whole words, which is what a menu is for. The sheet is the platform's
- * (a modal drawer on Android, a sheet on iOS); the content is identical in both.
+ * The menu behind the hamburger: where the app goes, and every category by name. The hero's
+ * horizontal strip is a shortcut, not a list — it cuts "Movimentação" in half and hides the
+ * categories that do not fit, which is what a menu of whole words is for. The sheet is the
+ * platform's; the content is identical on both.
  */
 @Composable
 fun HomeMenu(

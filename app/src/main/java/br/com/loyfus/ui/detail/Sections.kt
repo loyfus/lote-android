@@ -79,8 +79,8 @@ fun SectionTitle(text: String, modifier: Modifier = Modifier) {
 }
 
 /**
- * The tags above the title: what the lot is (category, kind, condition) and the two
- * facts worth a glance before reading on: that it accepts a proposal, that it was sold.
+ * The tags above the title: what the lot is (category, kind, condition) and the two facts
+ * worth a glance before reading on — that it accepts a proposal, that it was sold.
  * Neutral by default; colour only where it carries meaning.
  */
 @OptIn(ExperimentalLayoutApi::class)
@@ -128,10 +128,9 @@ private fun KickerTag(
 }
 
 /**
- * Where the numbers come from, and how old they are: the crawler reads the catalogue
- * every half hour and the real bid changes by the second, so the lot says when its
- * value was read and sends the reader to the source to confirm. Without a read time,
- * only the instruction.
+ * Where the numbers come from and how old they are: the crawler reads the catalogue every
+ * half hour and the real bid changes by the second, so the lot says when its value was read
+ * and sends the reader to the source to confirm.
  */
 @Composable
 fun SourceNote(model: DetailModel, modifier: Modifier = Modifier) {
@@ -278,10 +277,9 @@ fun Conditions(items: List<String>, modifier: Modifier = Modifier) {
 }
 
 /**
- * The auction the lot belongs to, in its own card. The place is labelled "Local do
- * leilão" on purpose: the catalogue's city and state are the address of the event, not
- * of the thing being sold, and calling it anything else would be false for nearly every
- * lot. E-mail and phone open the reader's own apps; the notice opens in the browser.
+ * The auction the lot belongs to. The place is labelled "Local do leilão" on purpose:
+ * the catalogue's city and state are the address of the event, not of the thing sold, and
+ * anything else would be false for nearly every lot.
  */
 @Composable
 fun AuctionCard(

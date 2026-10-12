@@ -112,9 +112,8 @@ fun minutesSince(iso: String?, now: Instant = Instant.now()): Long? =
     parseInstant(iso)?.let { Duration.between(it, now).toMinutes() }
 
 /**
- * A money amount inside a label that has room for no more than a few characters:
- * `1 mil`, `50 mil`, `1,5 mi`. Used by the price tag and the price shortcuts, where
- * the symbol is written once for the whole range.
+ * A money amount for a label with room for a few characters: `1 mil`, `50 mil`, `1,5 mi`. The
+ * price tag and the shortcuts write the symbol once for the whole range.
  */
 fun compactAmount(value: Long): String = when {
     value >= 1_000_000 -> decimalCompact(BigDecimal(value).movePointLeft(6)) + " mi"
@@ -123,9 +122,8 @@ fun compactAmount(value: Long): String = when {
 }
 
 /**
- * An amount the reader typed, as a tag: compact when the compact form is exact
- * (`50 mil`, `1,5 mil`, `2 mi`), grouped digits otherwise. A tag that rounds the
- * reader's own number would say something they did not ask for.
+ * An amount the reader typed, as a tag: compact when the compact form is exact, grouped digits
+ * otherwise. A tag that rounds the reader's own number would say something they did not ask for.
  */
 fun filterAmount(value: Long): String = when {
     value >= 1_000_000 && value % 100_000 == 0L -> compactAmount(value)

@@ -33,12 +33,9 @@ import br.com.loyfus.ui.theme.AmberText
 import br.com.loyfus.ui.theme.sized
 
 /**
- * A saved lot as a row: photo, title, price and deadline, and the filled heart that
- * removes it. No frame. A lot whose auction is over is dimmed to 60%: still readable,
- * visibly no longer in play.
- *
- * Like the tile, the row is one button with one spoken label and the heart is a stop of
- * its own beside it.
+ * A saved lot as a row: photo, title, price, deadline and the filled heart that removes it. An
+ * auction that is over is dimmed to 60%: still readable, visibly no longer in play. Like the
+ * tile, the row is one button and the heart is a stop of its own beside it.
  */
 @Composable
 fun SavedRow(

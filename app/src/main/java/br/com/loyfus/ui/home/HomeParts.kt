@@ -450,11 +450,9 @@ fun BudgetCard(onPick: (min: Long?, max: Long?) -> Unit, modifier: Modifier = Mo
 }
 
 /**
- * The header every phone app has: the menu on the left, the mark in the middle and
- * the settings on the right. It does not scroll: it is the night-blue bar the hero
- * grows out of, so the status bar always sits on the brand's ground and the menu is
- * always one tap away. Three 48dp targets, and the mark centred on the bar rather
- * than pushed aside by whatever is next to it.
+ * The header every phone app has: menu left, mark centre, settings right. It does not scroll —
+ * it is the night-blue bar the hero grows out of, so the status bar always sits on the brand's
+ * ground. Three 48dp targets, and the mark centred on the bar rather than pushed aside.
  */
 @Composable
 fun HomeBar(onOpenMenu: () -> Unit, onOpenSettings: () -> Unit, modifier: Modifier = Modifier) {
@@ -496,9 +494,8 @@ fun BrandMark(tint: Color, modifier: Modifier = Modifier) {
 }
 
 /**
- * The wordmark: the gavel in amber and LOYFUS in Bricolage, the app's title wherever
- * it appears. The amber is the brand, not a call to act; it is the one place the
- * accent stands for the name instead of for "now".
+ * The wordmark: the gavel in amber and LOYFUS in Bricolage. The amber here is the brand, not a
+ * call to act — the one place the accent stands for the name instead of for "now".
  */
 @Composable
 fun Wordmark(color: Color, modifier: Modifier = Modifier) {

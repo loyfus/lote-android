@@ -61,9 +61,9 @@ import br.com.loyfus.ui.theme.Touch
 import br.com.loyfus.ui.theme.Type
 
 /**
- * The app's settings, behind the gear on Home's bar: the theme, what the app keeps on
- * the phone, and what the app is. There is no account, so there is nothing here about
- * one; every choice is stored on the device and takes effect the moment it is made.
+ * The app's settings: the theme, what the app keeps on the phone, and what the app is. There is no
+ * account, so there is nothing here about one; every choice is stored on the device and takes
+ * effect the moment it is made.
  */
 @Composable
 fun SettingsScreen(

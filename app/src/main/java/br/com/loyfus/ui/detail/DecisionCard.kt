@@ -70,10 +70,9 @@ import br.com.loyfus.ui.theme.sized
 import kotlinx.coroutines.delay
 
 /**
- * Seconds left on the deadline, counted from the moment the lot was read, and ticking
- * for as long as the screen is on and the reader has not paused it. The time is the
- * device clock's, not a counter decremented by timers: a screen that was in the
- * background, or a paused one that is resumed, shows the real remaining time at once.
+ * Seconds left on the deadline, from the moment the lot was read, ticking while the screen is on
+ * and unpaused. The device clock's time, not a counter decremented by timers, so a screen that
+ * was in the background shows the real remaining time at once.
  */
 @Composable
 internal fun rememberLiveSeconds(initial: Long, readAtElapsed: Long, paused: Boolean): Long {
@@ -94,9 +93,9 @@ internal fun rememberLiveSeconds(initial: Long, readAtElapsed: Long, paused: Boo
 }
 
 /**
- * Milliseconds until the text for [seconds] left would read differently: every second
- * inside the last ten minutes, where the live format shows seconds, and every minute
- * before that. A countdown with hours to go has no reason to redraw sixty times a minute.
+ * Milliseconds until the text for [seconds] left would read differently: every second inside the
+ * last ten minutes, every minute before that. A countdown with hours to go has no reason to
+ * redraw sixty times a minute.
  */
 internal fun untilNextChange(seconds: Long, sinceReadMillis: Long): Long {
     val intoSecond = sinceReadMillis % 1_000
@@ -105,14 +104,12 @@ internal fun untilNextChange(seconds: Long, sinceReadMillis: Long): Long {
 }
 
 /**
- * The decision card: what the lot costs, how contested it is, and how long is left. It
- * is the loudest block of the screen and the only place the amber appears at size,
- * and only when the deadline is under a day: urgency is colour, clock and words, and
- * the bar below the time is the last day itself.
+ * The decision card: what the lot costs, how contested it is, how long is left. The loudest block
+ * on the screen and the only place amber appears at size, and only under a day to the deadline.
  *
- * The countdown ticks, so it can be paused (WCAG 2.2.2); pausing hides nothing, because
- * the absolute end date is always on the card. There is deliberately no live region on
- * it: announcing every second would make the screen unusable with a screen reader.
+ * The countdown ticks, so it can be paused (WCAG 2.2.2); pausing hides nothing, since the
+ * absolute end date is always on the card. There is deliberately no live region: announcing every
+ * second would make the screen unusable with a screen reader.
  */
 @Composable
 fun DecisionCard(
@@ -223,10 +220,9 @@ fun DecisionCard(
 }
 
 /**
- * The price, on one line at any text size. At the reader's own font scale the hero
- * figure can be wider than the card; it then shrinks until it fits, instead of
- * wrapping the price under its own currency symbol or being cut off at the edge.
- * Never above the specified 34sp, never below 20sp.
+ * The price, on one line at any text size: at the reader's font scale the figure can be wider than
+ * the card, so it shrinks until it fits rather than wrapping under its own symbol. Never above the
+ * specified 34sp, never below 20sp.
  */
 @Composable
 private fun HeroPrice(text: String, color: Color) {

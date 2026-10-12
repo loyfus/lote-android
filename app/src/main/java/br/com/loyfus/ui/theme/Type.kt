@@ -41,14 +41,10 @@ private val centered = LineHeightStyle(
 )
 
 /**
- * The type scale: seventeen roles, two families, no capitals and no letter-spacing
- * on labels (the wordmark is the only capitalised text in the app).
- *
- * Bricolage carries identity and titles and keeps its proportional lining figures, so
- * a year inside a lot title reads as part of the sentence. Inter Tight carries the
- * interface and every number, always with tabular figures so prices and countdowns
- * never wobble. Sizes are sp: the reader's font scale reaches all of them, and no
- * container below fixes a height around text.
+ * The type scale: seventeen roles, two families, no capitals or letter-spacing on labels (the
+ * wordmark is the only capitalised text in the app). Bricolage carries identity and titles,
+ * Inter Tight the interface and every number, always with tabular figures so prices and
+ * countdowns never wobble. Sizes are sp, and no container below fixes a height around text.
  */
 object Type {
     val display = serif(30, 34, -0.6)
@@ -121,8 +117,7 @@ private fun sans(
 )
 
 /**
- * The handful of in-between sizes the component specs name outright (12.5 on a time
- * chip, 13 under a price, 13.5 on a note) without promoting them to scale roles: they
+ * The in-between sizes the component specs name outright without promoting them to roles: they
  * reuse a role's family, weight and tracking and change nothing else.
  */
 fun TextStyle.sized(size: Double, lineHeight: Double, weight: FontWeight? = null): TextStyle =

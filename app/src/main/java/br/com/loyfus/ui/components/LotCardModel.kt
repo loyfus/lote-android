@@ -15,13 +15,12 @@ import br.com.loyfus.data.LotSummary
 class ChipSpec(val text: String, val hot: Boolean, val clock: Boolean)
 
 /**
- * Everything a lot tile or a saved row displays, worked out once when the lot arrives
- * rather than on every recomposition of a list that is scrolling: the cleaned title
- * runs a dozen regexes, and a feed redraws it sixty times a second.
+ * Everything a tile or saved row displays, worked out once when the lot arrives rather than on
+ * every recomposition of a scrolling list: the cleaned title runs a dozen regexes and a feed
+ * redraws it sixty times a second.
  *
- * The data model is untouched; this is the display of it. The deadline is the snapshot
- * of the moment the page was read, which is why a feed carries a freshness label and a
- * pull to refresh instead of a ticking clock on every card.
+ * The data model is untouched. The deadline is the snapshot of the moment the page was read,
+ * which is why a feed carries a freshness label and a pull to refresh, not a clock per card.
  */
 class LotCardModel(
     val lot: LotSummary,

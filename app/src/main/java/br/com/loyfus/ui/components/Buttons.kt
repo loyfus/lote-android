@@ -32,9 +32,9 @@ import br.com.loyfus.ui.theme.Touch
 import br.com.loyfus.ui.theme.Type
 import br.com.loyfus.ui.theme.Amber
 
-// Three emphases and one rule: every button keeps a 48dp hit box at least, answers a
-// press (a hair smaller, a touch lighter), and says so when it is disabled (45%, and
-// the state reaches accessibility services). The look is the specification's:
+// Three emphases and one rule: every button keeps a 48dp hit box at least, answers a press (a
+// hair smaller, a touch lighter), and says so when disabled (45%, reaching accessibility
+// services). The look is the specification's:
 //   primary    52dp, radius 14, amber with the on-amber label, icon at the end
 //   secondary  the same box, a 1dp control border, ink label
 //   quiet      a label and nothing else, in ink: it is not the brand's colour

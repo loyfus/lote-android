@@ -48,19 +48,16 @@ private val AMBIENT_BLUR = 22.dp
 private val AmbientFilter = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(1.15f) })
 
 /**
- * A photograph on its plate. The picture is never cropped: seller banners and watermarks
- * are part of the listing, and cutting them made plates read as broken images. It sits in
- * `Fit`, centred, on an ambient layer, the same picture filling the plate, blurred and
- * dimmed, so a portrait photo in a landscape plate is framed by its own colours instead
- * of by grey bars.
+ * A photograph on its plate, never cropped: seller banners and watermarks are part of the
+ * listing and cutting them made plates read as broken images. It sits in `Fit` on an ambient
+ * layer — the same picture filling the plate, blurred and dimmed — so a portrait photo in a
+ * landscape plate is framed by its own colours instead of grey bars.
  *
- * The blur is a render effect, which only exists from API 31; below that the ambient
- * layer is not drawn at all (an unblurred, enlarged copy would be worse than the plain
- * plate). Both layers draw one painter, so the image is requested, decoded and cached once.
+ * The blur is a render effect, API 31+, and below that the ambient layer is simply not drawn;
+ * both layers share one painter, so the image is requested and decoded once.
  *
- * [url] may be blank: a lot with no photo is normal here, and the plate says so quietly.
- * Pass a [contentDescription] only where the photo is the content (the gallery); in a
- * list the title beside it is the text alternative.
+ * [url] may be blank: a lot with no photo is normal here. Pass a [contentDescription] only
+ * where the photo is the content (the gallery); in a list the title beside it is the text.
  */
 @Composable
 fun PhotoPlate(

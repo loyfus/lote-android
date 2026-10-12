@@ -60,10 +60,9 @@ import kotlinx.coroutines.withTimeoutOrNull
 private const val UNDO_MILLIS = 5_000L
 
 /**
- * What the reader saved, ordered by what needs them first: the auctions that close
- * today, then this week, then the rest, then the ones that are over (dimmed). Removing
- * a lot is one tap on its heart and is never final for five seconds: the row goes at
- * once and a snackbar offers to put it back.
+ * What the reader saved, ordered by what needs them first: closing today, then this week, then
+ * the rest, then the ones already over (dimmed). Removing a lot is one tap on its heart and is
+ * never final for five seconds: the row goes at once and a snackbar offers to put it back.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

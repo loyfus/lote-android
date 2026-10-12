@@ -44,9 +44,8 @@ import br.com.loyfus.ui.theme.Surface
 
 /**
  * A loading placeholder breathes: the whole group dims to 55% and back over 1.8 s — one
- * animation for the group, not one per block, read in the layer so it never recomposes.
- * It says "something is on its way" without a sweep for the eye to follow, and with
- * reduced motion it stands still.
+ * animation for the group, read in the layer so it never recomposes. Reduced motion: it stands
+ * still.
  */
 @Composable
 private fun Modifier.pulse(): Modifier {
@@ -82,9 +81,8 @@ private fun TileSkeleton(style: TileStyle, modifier: Modifier = Modifier) {
 }
 
 /**
- * Home while it loads: the hero's own parts (pill, five shortcuts, the notice)
- * and then the sheet's. Both are placeholders with the final geometry, so nothing
- * jumps when the page arrives.
+ * Home while it loads: the hero's parts, then the sheet's. Both are placeholders with the final
+ * geometry, so nothing jumps when the page arrives.
  */
 @Composable
 fun HomeHeroSkeleton(showBanner: Boolean, modifier: Modifier = Modifier) {

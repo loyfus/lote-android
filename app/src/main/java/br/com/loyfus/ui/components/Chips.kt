@@ -41,11 +41,10 @@ import br.com.loyfus.ui.theme.Type
 import br.com.loyfus.ui.theme.sized
 
 /**
- * A choice among a few: category, type, deadline, sort. A control, so it has a border
- * (1dp, the 3:1 line of a control); selected, it fills with ink and loses the border.
- * The pill is 40dp tall inside a 48dp touch target, and it reports `selected` to
- * accessibility services: a chip that only changes colour says nothing to a reader
- * who cannot see it.
+ * A choice among a few: category, type, deadline, sort. It has a border (1dp, the 3:1 control
+ * line) and, selected, fills with ink and loses it. The pill is 40dp inside a 48dp target and
+ * reports `selected` to accessibility services: a chip that only changes colour says nothing to a
+ * reader who cannot see it.
  */
 @Composable
 fun Chip(

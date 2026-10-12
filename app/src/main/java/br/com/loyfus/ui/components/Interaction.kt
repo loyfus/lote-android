@@ -19,9 +19,8 @@ import br.com.loyfus.ui.theme.LocalReducedMotion
 import br.com.loyfus.ui.theme.Motion
 
 /**
- * How much a pressed thing gives. A control (button, chip, icon, tag) sinks to 96%; a
- * surface the size of a photograph or a card sinks to 98%, because the same 4% on a
- * 256dp tile reads as a lurch rather than a press.
+ * How much a pressed thing gives. A control sinks to 96%; a surface the size of a photograph
+ * sinks to 98%, because the same 4% on a 256dp tile reads as a lurch rather than a press.
  */
 enum class Press(val scale: Float) {
     Control(0.96f),
@@ -54,11 +53,9 @@ fun Modifier.pressFeedback(source: InteractionSource, press: Press = Press.Contr
 }
 
 /**
- * Keeps a control's 48dp touch target without paying 48dp of layout for it. The control
- * is measured at its full size and centred in a box that reports at most [layoutHeight]
- * to its parent, so it overflows equally above and below: the picture and the spacing
- * around it are the design's, the target and the bounds a screen reader sees are 48dp.
- * Compose still delivers touches that land in the overflow.
+ * Keeps a control's 48dp touch target without paying 48dp of layout for it: the control is
+ * measured at full size and centred in a box reporting at most [layoutHeight], so it overflows
+ * equally above and below. Compose still delivers touches that land in the overflow.
  */
 fun Modifier.touchOverflow(layoutHeight: Dp): Modifier = layout { measurable, constraints ->
     val placeable = measurable.measure(constraints)

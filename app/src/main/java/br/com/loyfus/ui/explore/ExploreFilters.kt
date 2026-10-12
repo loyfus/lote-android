@@ -3,9 +3,8 @@ package br.com.loyfus.ui.explore
 import br.com.loyfus.core.priceRangeLabel
 
 /**
- * What the filter sheet narrows by: type, deadline and price. Category has its own row of
- * chips and the order its own menu, so neither counts here: the badge on the filter
- * button says how many things the *sheet* is holding.
+ * What the filter sheet narrows by: type, deadline and price. Category has its own chip row and
+ * order its own menu, so neither counts here — the badge says how much the *sheet* is holding.
  */
 data class ExploreFilters(
     /** `LEILAO`, `AFTER_MARKET`, or null for both. */

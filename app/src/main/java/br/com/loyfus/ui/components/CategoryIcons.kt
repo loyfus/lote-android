@@ -23,11 +23,10 @@ import androidx.compose.material.icons.outlined.Watch
 import androidx.compose.ui.graphics.vector.ImageVector
 
 /**
- * The glyph of a category, from the specification's table. Compared after `trim()`: the
- * API keeps stray spaces in some names. `forklift`, the glyph for "Movimentação &
- * Transporte", does not exist in material-icons-extended; the warehouse is the nearest
- * in meaning. Anything unlisted wears the tag, so a category the catalogue adds later
- * never shows an empty square.
+ * The glyph of a category, from the specification's table, compared after `trim()`: the API keeps
+ * stray spaces in some names. `forklift` does not exist in material-icons-extended and the
+ * warehouse stands in for it. Anything unlisted wears the tag, so a category added later never
+ * shows an empty square.
  */
 fun categoryIcon(name: String): ImageVector = when (name.trim()) {
     "Imóveis" -> Icons.Outlined.Apartment
