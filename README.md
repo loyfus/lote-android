@@ -88,28 +88,27 @@ que existe uma API — trocar o cliente não toca em nenhum composable.
 
 ## Rodar
 
-A API precisa estar no ar. O repositório `loyfus-backend` sobe com Docker:
-
-```bash
-docker compose up -d
-```
-
-Depois, no projeto Android:
+A base da API aponta por padrão para `https://lote.loyfus.com.br` — a API do
+catálogo publicada por um Cloudflare Tunnel. Funciona igual no emulador e no
+dispositivo físico, sem `adb reverse` nem IP de rede local.
 
 ```bash
 export JAVA_HOME=/opt/homebrew/opt/openjdk@17
 export ANDROID_HOME=~/Library/Android/sdk
 
-# aponta o loopback do dispositivo na API da maquina
-~/Library/Android/sdk/platform-tools/adb reverse tcp:8080 tcp:8080
-
 ./gradlew :app:installDebug
 ```
 
-Para um dispositivo físico, aponte a base na compilação:
+Para desenvolver contra uma API local em vez da publicada, sobrescreva a base
+na compilação — com `-P` o valor padrão é ignorado:
 
 ```bash
-./gradlew :app:assembleDebug -PloteApiBaseUrl=http://192.168.0.10:8080
+# emulador, com a API local na porta 8080
+./gradlew :app:assembleDebug -PloteApiBaseUrl=http://10.0.2.2:8080
+
+# dispositivo fisico, com adb reverse mapeando a porta do celular na maquina
+~/Library/Android/sdk/platform-tools/adb reverse tcp:8080 tcp:8080
+./gradlew :app:assembleDebug -PloteApiBaseUrl=http://127.0.0.1:8080
 ```
 
 ## Testes
