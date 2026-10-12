@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Loyfus" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/launch_background</item>
+        <item name="android:navigationBarColor">@color/launch_background</item>
+        <item name="android:windowBackground">@color/launch_background</item>
+        <!-- Dark icons on the light ground until Compose takes over the bar appearance. -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

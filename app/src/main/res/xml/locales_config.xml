@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  WCAG 3.1.1 (Language of Page): the app declares that its content is Brazilian
+  Portuguese, so screen readers pick the right pronunciation rules and any future
+  translation arrives with its own locale instead of being guessed.
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="pt-BR" />
+</locale-config>

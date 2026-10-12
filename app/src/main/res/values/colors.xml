@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The colour the window shows before Compose draws its first frame: paper in light,
+         the near-black ground in dark. A single hard-coded light value flashed cream at
+         anyone who opens the app in a dark room. -->
+    <color name="launch_background">#F6F7F9</color>
+</resources>

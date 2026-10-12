@@ -1,0 +1,15 @@
+# Build
+build/
+.gradle/
+.kotlin/
+*.apk
+*.aab
+*.jar
+# O wrapper e o unico jar que e fonte: sem ele ninguem compila fora desta maquina.
+!**/gradle-wrapper.jar
+
+# Configuracao local de cada maquina
+local.properties
+
+# macOS
+.DS_Store
